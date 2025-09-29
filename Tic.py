@@ -2,12 +2,13 @@ import pyautogui as pau
 import keyboard
 import os
 from openai import OpenAI
-
+import time 
+import webbrowser
 
 # Setup Groq client
 
 client = OpenAI(
-    api_key="you-api",  # or "your_real_api_key_here"
+    api_key="your_real_api_key_here",  # or "your_real_api_key_here"
     base_url="https://api.groq.com/openai/v1"
 )
 
@@ -15,7 +16,9 @@ client = OpenAI(
 
 
 #### this go to the page of the game and take a screenshot
-pau.hotkey('alt', 'tab')
+
+webbrowser.open("https://playtictactoe.org/")
+# pau.hotkey('alt', 'tab')
 # img = pau.screenshot(region=(750,150,1350,1280)).save("tic.png")
 # img = pau.screenshot(allScreens=True).save("tic_tac.png")
 
@@ -23,6 +26,7 @@ pau.hotkey('alt', 'tab')
 # # # # img = pau.locateCenterOnScreen('image.png')
 
 # pau.hold = 5
+time.sleep(5)
 
 # pau.dragTo(930,380)
 # # print(pau.position())
