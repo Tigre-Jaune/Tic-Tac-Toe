@@ -69,6 +69,7 @@ firstSpot_Y = 380
 secondSpot_X = 1040
 
 game = []  # 2D array
+location = {}
 
 for y in range(3):  # 3 rows
     currentY = firstSpot_Y + 395 * y
@@ -86,15 +87,19 @@ for y in range(3):  # 3 rows
         result = check_sign(first[0], second[0])
         print(f"Row={y+1}, Column={x+1} ->", result)
 
-        row.append(result) 
+        row.append(result)  ######## store the result of each square in a 2D array
 
-    game.append(row)  
+        location[(y, x)] = {    ######## store the location of each square in a dictionary
+            'coordinations' : ((currentX1, currentY), (currentX2, currentY))
+        }
+
+    game.append(row) 
 
 # Print the full board
 print("Final Board:")
 for r in game:
     print(r)
-
+print(location)
 
 
 ############# AI 
