@@ -64,36 +64,36 @@ def check_sign(x,o):
 # # color1 = pau.pixel(930,380)
 # # print(color1)
 
-
 firstSpot_X = 930
 firstSpot_Y = 380
 secondSpot_X = 1040
-first = 0
-second = 0
 
-game = []
+game = []  # 2D array
 
-for y in range(3): # from 1 to 3
-
+for y in range(3):  # 3 rows
     currentY = firstSpot_Y + 395 * y
-    for x in range(3): # from 1 to 6
+    row = []  # store one row of results
 
+    for x in range(3):  # 3 columns
         currentX1 = firstSpot_X + 395 * x 
         currentX2 = secondSpot_X + 395 * x
 
-        pau.moveTo(currentX1 , currentY )
-        first = pau.pixel(currentX1 , currentY )
-        pau.moveTo(currentX2 , currentY )
+        pau.moveTo(currentX1, currentY)
+        first = pau.pixel(currentX1, currentY)
+        pau.moveTo(currentX2, currentY)
         second = pau.pixel(currentX2, currentY)
 
         result = check_sign(first[0], second[0])
-        print(f"Row={y+1}, Column={x+1} ->",result )
+        print(f"Row={y+1}, Column={x+1} ->", result)
 
-        game.append(result)
+        row.append(result) 
 
+    game.append(row)  
 
-print(game)
-
+# Print the full board
+print("Final Board:")
+for r in game:
+    print(r)
 
 
 
