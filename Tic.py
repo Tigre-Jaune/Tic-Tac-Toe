@@ -18,21 +18,9 @@ client = OpenAI(
 #### this go to the page of the game and take a screenshot
 
 webbrowser.open("https://playtictactoe.org/")
-# pau.hotkey('alt', 'tab')
-# img = pau.screenshot(region=(750,150,1350,1280)).save("tic.png")
-# img = pau.screenshot(allScreens=True).save("tic_tac.png")
 
 
-# # # # img = pau.locateCenterOnScreen('image.png')
-
-# pau.hold = 5
 time.sleep(5)
-
-# pau.dragTo(930,380)
-# # print(pau.position())
-
-# # topLeft, topRight, bottomLeft, bottomeRight :(750,150), (2100,150),(750, 1430), (2100,1430)
-
 
 
 game = []  # 2D array
@@ -89,8 +77,6 @@ def move():
 
 while True :
 
-    # # color1 = pau.pixel(930,380)
-    # # print(color1)
 
     ###### Print the full board
     print("Final Board:")
@@ -136,8 +122,7 @@ while True :
 
     # Print the assistant's reply
     print(coords)
-    # pau.dragTo(coords)
-    # pau.moveTo(col, row, duration=1)
+
     pau.click(coords, duration=1)
 
     time.sleep(2)
@@ -147,123 +132,4 @@ while True :
         continue
     else:
         break
-
-
-# import pyautogui as pau
-# import time
-
-# firstSpot_X = 930
-# firstSpot_Y = 380
-
-# for y in range(3):  # 3 rows
-#     currentY = firstSpot_Y + 385 * y
-#     for x in range(3):  # 3 columns
-#         currentX = firstSpot_X + 395 * x 
-
-#         # first pixel
-#         fx = currentX + 395
-#         fy = currentY
-#         pau.moveTo(fx, fy, duration=0.2)   # move mouse
-#         first = pau.pixel(fx, fy)
-
-#         # second pixel
-#         sx = currentX + 395 * 2
-#         sy = currentY
-#         pau.moveTo(sx, sy, duration=0.2)   # move mouse
-#         second = pau.pixel(sx, sy)
-
-#         # print result with coordinates
-#         print(f"y={y+1}, x={x+1} ->", check_sign(first, second))
-
-#         time.sleep(0.2)  # small pause so you can see the movement
-
-
-
-
-
-
-
-
-
-
-
-
-##############chech the postion of the mouse continuously
-
-# import pyautogui, sys
-# import keyboard
-# print('Press Ctrl-C to quit.')
-# try:
-#     while True:
-#         x, y = pyautogui.position()
-#         positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
-#         print(positionStr, end='')
-#         print('\b' * len(positionStr), end='', flush=True)
-#         if keyboard.is_pressed ('ctrl+shift') :
-#             break
-# except KeyboardInterrupt:
-#     print('\n')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##################################  AI made 
-# import pyautogui as pau
-# import time
-
-# print("Move your mouse to the TOP-LEFT of the FIRST square (row=1,col=1), then press Enter...")
-# input()
-# firstSpot_X, firstSpot_Y = pau.position()
-# print("Recorded first spot:", firstSpot_X, firstSpot_Y)
-
-# print("\nMove your mouse to the TOP-LEFT of the NEXT square to the right (row=1,col=2), then press Enter...")
-# input()
-# secondX, secondY = pau.position()
-# stepX = secondX - firstSpot_X
-# print("Recorded X step:", stepX)
-
-# print("\nMove your mouse to the TOP-LEFT of the NEXT square below (row=2,col=1), then press Enter...")
-# input()
-# thirdX, thirdY = pau.position()
-# stepY = thirdY - firstSpot_Y
-# print("Recorded Y step:", stepY)
-
-# print("\n✅ Calibration done!")
-# print(f"firstSpot_X={firstSpot_X}, firstSpot_Y={firstSpot_Y}, stepX={stepX}, stepY={stepY}")
-
-# # === Now scan the full 3x3 grid ===
-# for y in range(3):  # rows
-#     for x in range(3):  # cols
-#         posX = firstSpot_X + stepX * x
-#         posY = firstSpot_Y + stepY * y
-
-#         pau.moveTo(posX, posY, duration=0.2)   # show scanning
-#         px = pau.pixel(posX, posY)
-#         print(f"Row={y+1}, Col={x+1}, Pixel={px}")
-
-#         time.sleep(0.2)
-
-
-
 
