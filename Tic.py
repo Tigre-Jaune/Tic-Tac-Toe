@@ -35,6 +35,8 @@ time.sleep(5)
 
 
 
+game = []  # 2D array
+location = {}
 
 
 
@@ -54,18 +56,10 @@ def check_sign(x,o):
         return 'ERROR'
 
 
-
-while True :
-
-    # # color1 = pau.pixel(930,380)
-    # # print(color1)
-
+def move():
     firstSpot_X = 930
     firstSpot_Y = 380
     secondSpot_X = 1040
-
-    game = []  # 2D array
-    location = {}
 
     for y in range(3):  # 3 rows
         currentY = firstSpot_Y + 395 * y
@@ -91,7 +85,14 @@ while True :
 
         game.append(row) 
 
-    # Print the full board
+
+
+while True :
+
+    # # color1 = pau.pixel(930,380)
+    # # print(color1)
+
+    ###### Print the full board
     print("Final Board:")
     for r in game:
         print(r)
