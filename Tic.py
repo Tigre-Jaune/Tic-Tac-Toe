@@ -99,7 +99,6 @@ for y in range(3):  # 3 rows
 print("Final Board:")
 for r in game:
     print(r)
-print(location)
 
 
 ############# AI 
@@ -130,15 +129,27 @@ response = client.chat.completions.create(
     ]
 )
 
+###### the mouse go to the place the AI decided and click 
+
+reply = response.choices[0].message.content.strip()  
+
+
+row, col = map(int, reply.strip("()").split(","))
+coords = location[(row, col)]["coordinations"]
+
 # Print the assistant's reply
-print(response.choices[0].message.content)
+print(coords)
+# pau.dragTo(coords)
+# pau.moveTo(col, row, duration=1)
+pau.click(coords, duration=1)
 
+time.sleep(2)
 
-
-
-
-
-
+# all_full = all(cell != "Empty" for row in game for cell in row)
+# if all_full:
+#     continue
+# else:
+#     break
 
 
 # import pyautogui as pau
